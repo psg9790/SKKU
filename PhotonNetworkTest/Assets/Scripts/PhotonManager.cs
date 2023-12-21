@@ -9,6 +9,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     private readonly string version = "1.0";
     private string userId = "psg9790";
 
+
     private void Awake()
     {
         // æ¿ µø±‚»≠
