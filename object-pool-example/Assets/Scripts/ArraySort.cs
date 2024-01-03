@@ -19,6 +19,37 @@ public class ArraySort : MonoBehaviour
         foreach (int val in newScores)
             out2 += val.ToString() + " ";
         Debug.Log(out2);
+
+        int target = 70;
+        int result = MyBinarySearch(newScores, target);
+        Debug.Log($"{target} is at: {result}");
+    }
+
+    int MyBinarySearch(int[] scores, int findValue)
+    {
+        int lft = 0, rgt = scores.Length - 1;
+
+        while (lft <= rgt)
+        {
+            int mid = (lft + rgt) / 2;
+
+            // 오른쪽 구역으로 ㄱㄱ
+            if (scores[mid] < findValue)
+            {
+                lft = mid + 1;
+            }
+            // 왼쪽 구역으로 ㄱㄱ
+            else if (scores[mid] > findValue)
+            {
+                rgt = mid - 1;
+            }
+            // 찾음
+            else
+            {
+                return mid;
+            }
+        }
+        return -1;
     }
 
     int[] MySort(int[] scores)
