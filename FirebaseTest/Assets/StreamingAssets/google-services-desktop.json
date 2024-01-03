@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "409131859382",
+    "firebase_url": "https://fir-test-be175-default-rtdb.firebaseio.com",
+    "project_id": "fir-test-be175",
+    "storage_bucket": "fir-test-be175.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:409131859382:android:e30e83c1de3c8e0d191517",
+        "android_client_info": {
+          "package_name": "com.FIRE.FirebaseTest"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALiLFB0D7Qeerte0kGQaFYPIwGHzc0kBk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
