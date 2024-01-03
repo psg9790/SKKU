@@ -23,15 +23,22 @@ public class ArraySort : MonoBehaviour
 
     int[] MySort(int[] scores)
     {
+        // 배열 매개변수는 참조변수이므로 값 수정 원본도 함께 바뀜,
+        // 새로운 배열에 값들을 복사한 후 정렬해야 함
         int[] newScore = new int[scores.Length];
         Array.Copy(scores, newScore, scores.Length);
+        Array.Sort(newScore);
 
+        // 앞에거 i
         for (int i = 0; i <= newScore.Length - 2; i++)
         {
+            // 뒤에거 j
             for (int j = i + 1; j <= newScore.Length - 1; j++)
             {
+                // 작은게 뒤에 있으면 swap
                 if (newScore[i] > newScore[j])
                 {
+                    // swap
                     int temp = newScore[j];
                     newScore[j] = newScore[i];
                     newScore[i] = temp;
