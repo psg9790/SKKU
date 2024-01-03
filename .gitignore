@@ -77,3 +77,4 @@
 # End of https://www.toptal.com/developers/gitignore/api/unity
 
 */FirebaseCppApp-11_6_0.bundle
+/FirebaseTest/Assets/Firebase/Plugins/x86_64/FirebaseCppApp-11_6_0.bundle
