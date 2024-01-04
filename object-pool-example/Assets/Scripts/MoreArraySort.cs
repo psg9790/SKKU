@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-class Person : IComparable<Person>
+class Person : IComparable<Person>, IEquatable<Person>  // 인터페이스 상속
 {
     public string Name { get; private set; }
     public int Age { get; private set; }
@@ -24,6 +24,15 @@ class Person : IComparable<Person>
             return 1;
         else
             return this.Age.CompareTo(other.Age);
+    }
+
+    // IEquatable의 Equals를 재정의
+    // 객체에서 EqualsTo 메서드를 사용하면 다음과 같은 기준으로 비교
+    public bool Equals(Person other)
+    {
+        if (other == null)
+            return false;
+        return Equals(this.Id, other.Id);
     }
 }
 public class MoreArraySort : MonoBehaviour
@@ -53,14 +62,22 @@ public class MoreArraySort : MonoBehaviour
         int result2 = BinaryNameSearch(list.ToArray(), target2, 0, list.Count - 1);
         Debug.Log($"이름이 {target2}인 사람은 {result2}번째 / 나이: {list[result2].Age}, ID: {list[result2].Id}");
 
-
+        Person p10 = new Person("구구구", 99, "999");
+        if (p6.Equals(p10))
+        {
+            Debug.Log("같음");
+        }
+        else
+        {
+            Debug.Log("다름");
+        }
     }
 
     /// <summary>
     /// 나이로 사람찾기 (이진탐색)
     /// </summary>
-    /// <param name="persons">Person 배열(정렬됨)</param>
-    /// <param name="age">나이</param>
+    /// <param name="persons">Person 배열 (정렬된)</param>
+    /// <param name="age">찾을 나이</param>
     /// <returns>int (null: -1)</returns>
     int BinaryAgeSearch(Person[] persons, int age)
     {
@@ -90,8 +107,8 @@ public class MoreArraySort : MonoBehaviour
     /// <summary>
     /// 이름으로 사람찾기 (이진탐색)
     /// </summary>
-    /// <param name="persons">Person 배열 (정렬됨)</param>
-    /// <param name="name">찾는 이름</param>
+    /// <param name="persons">Person 배열 (정렬된)</param>
+    /// <param name="name">찾을 이름</param>
     /// <returns>string</returns>
     int BinaryNameSearch(Person[] persons, string name, int v_low, int v_high)
     {
